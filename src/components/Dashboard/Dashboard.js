@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
 import { browserHistory } from 'react-router';
 
-const myToken = process.env.myToken;
-
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -29,14 +27,17 @@ export default class Dashboard extends Component {
       }
     })
     .then((results) => {
-      results.json.then((content) => {
+      results.json().then((content) => {
+
         console.log('content.message: ', content.message)
+
       })
     })
     .catch((err) => {
+      console.log('fail in catch', err);
       browserHistory.push('/login');
     })
-  }; //closes componentDidMount
+  } //closes componentDidMount
 
 
 

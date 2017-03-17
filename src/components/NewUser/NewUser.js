@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 
 import Nav from '../Nav/Nav';
 
-export default class Login extends Component {
+export default class NewUser extends Component {
   constructor(props){
     super(props);
 
@@ -12,6 +12,8 @@ export default class Login extends Component {
       user: {}
     }
   }
+
+
 
 handleChange(event){
     let newState = update(this.state, {
@@ -27,25 +29,16 @@ handleChange(event){
 
 handleSubmit(event){
   event.preventDefault();
-  console.log('handleSubmit is firing');
 
-    fetch('http://localhost:8000/users/login', {
+    fetch('http://localhost:8000/users', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
         "Content-Type": "application/json"
       }
-    }).then((data) => {
-
-      data.json()
-      .then(Obj => {
-        console.log('#########', Obj)
-        window.localStorage.setItem('token', Obj.token);
-        window.localStorage.setItem('firstname', Obj.firstname);
-        window.localStorage.setItem('lastname', Obj.lastname);
-        browserHistory.push('/dashboard');
-
-      })
+    }).then(() => {
+      browserHistory.push('/login');
+      console.log('new user created')
     })
     .catch((err) => {
       console.log(err);
@@ -53,25 +46,33 @@ handleSubmit(event){
 
 }//closes handleSubmit
 
-
-
 render() {
     return(
       <div>
         <Nav />
-        <h2>Login to Decidr</h2>
+        <h2>Welcome to Decidr</h2>
         <form onSubmit={this.handleSubmit.bind(this)}>
+          <label>First Name:</label><br />
+          <input name="first_name"
+          onChange={this.handleChange.bind(this)}
+          type='text' /><br /><br />
+
+          <label>Last Name:</label><br />
+          <input name="last_name"
+          onChange={this.handleChange.bind(this)}
+          type='text' /><br /><br />
+
           <label>Email: </label><br />
-          <input name='email'
+          <input name="email"
           onChange={this.handleChange.bind(this)}
           type='text' /><br /><br />
 
           <label>Password: </label><br />
-          <input name='password'
+          <input name="password"
           onChange={this.handleChange.bind(this)}
           type='password' /><br /><br />
 
-          <button type='submit'>Login</button>
+          <button type="submit">Submit</button>
 
         </form>
 
@@ -79,4 +80,4 @@ render() {
     )
 }
 
-} //closes class Login
+} //Closes component
