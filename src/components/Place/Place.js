@@ -32,7 +32,7 @@ class Place extends Component {
   handleSubmit(event){
     event.preventDefault();
 
-    fetch(`https://decidr-express.herokuapp.com/restaurants/${localStorage.user_id}`, {
+    fetch(`http://localhost:8000/restaurants/${localStorage.user_id}`, {
       method: 'POST',
       body: JSON.stringify({
         restaurant: this.props.place,

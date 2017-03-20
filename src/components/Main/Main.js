@@ -40,7 +40,7 @@ export default class Main extends Component {
   }
 
   findPlaces() {
-  fetch(`https://decidr-express.herokuapp.com/restaurants/zip/${this.state.search.zip}/${this.state.search.category}`, {
+  fetch(`http://localhost:8000/restaurants/zip/${this.state.search.zip}/${this.state.search.category}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

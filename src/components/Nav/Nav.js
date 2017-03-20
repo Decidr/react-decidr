@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserLinks from './UserLinks';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 export default class Nav extends Component {
   constructor() {
