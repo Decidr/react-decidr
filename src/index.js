@@ -5,7 +5,6 @@ import { Route, Router, browserHistory } from 'react-router';
 
 
 import "./styles/style.css";
-import "./styles/magic-master/magic.min.css";
 import "./styles/MyFontsWebfontsKit/MyFontsWebfontsKit.css";
 import "./vendor/css/skeleton_css/normalize.css";
 //import "./vendor/css/skeleton_css/skeleton.css";

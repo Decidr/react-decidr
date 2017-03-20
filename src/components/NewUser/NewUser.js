@@ -30,7 +30,7 @@ handleChange(event){
 handleSubmit(event){
   event.preventDefault();
 
-    fetch('https://decidr-express.herokuapp.com/users', {
+    fetch('http://localhost:8000/users', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {

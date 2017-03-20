@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
   } //closes componentDidMount
 
   getFavorites() {
-    fetch('https://decidr-express.herokuapp.com/users/restrict', {
+    fetch('http://localhost:8000/users/restrict', {
       method: 'GET',
       headers: {
         'Authorization': window.localStorage.getItem('token')
@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
 
         console.log('content.message: ', content.message)
 
-        fetch(`https://decidr-express.herokuapp.com/restaurants/${localStorage.user_id}`, {
+        fetch(`http://localhost:8000/restaurants/${localStorage.user_id}`, {
           method: 'GET'
         })
         .then((favorites) => {
@@ -55,7 +55,7 @@ export default class Dashboard extends Component {
                 lat: fav[0].lat,
                 lng: fav[0].lng
               });
-            };
+            }
           })
         })
       })
@@ -64,7 +64,7 @@ export default class Dashboard extends Component {
       console.log('fail in catch', err);
       browserHistory.push('/login');
     })
-  };
+  }
 
   nextPlace() {
     let index = this.state.favorites.indexOf(this.state.place);
@@ -88,7 +88,7 @@ export default class Dashboard extends Component {
 
   deleteFavorite() {
     const id = window.localStorage.getItem('user_id');
-    fetch(`https://decidr-express.herokuapp.com/restaurants/${id}/${this.state.place.id}`, {
+    fetch(`http://localhost:8000/restaurants/${id}/${this.state.place.id}`, {
       method: 'DELETE'
     })
     .then(() => {
@@ -113,7 +113,7 @@ export default class Dashboard extends Component {
     event.preventDefault();
 
     const id = window.localStorage.getItem('user_id');
-    fetch(`https://decidr-express.herokuapp.com/restaurants/${id}/${this.state.place.id}`, {
+    fetch(`http://localhost:8000/restaurants/${id}/${this.state.place.id}`, {
       method: 'PUT',
       body: JSON.stringify({comment: this.state.comment}),
       headers: {
