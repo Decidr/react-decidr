@@ -99,12 +99,12 @@ ERD (subsequently updated as per API returns:
 
 Rough WireFrame One: 
 ### Index Page
-![alt text] (http://i.imgur.com/CIgPrYW.jpg)
+![alt text](http://i.imgur.com/CIgPrYW.jpg)
 
 
 Rough WireFrame Two: 
 ### Login Page
-![alt text] (http://i.imgur.com/bR5v01F.jpg) 
+![alt text](http://i.imgur.com/bR5v01F.jpg) 
 
 
 Rough WireFrame Three: 
@@ -151,3 +151,4 @@ Production Wireframe Seven:
 ## Problems/Hurdles:
 
 Group Three faced significant hurdles in actualizing the web tokens in order to call the Google Places API. The group also chose to change APIs early on in the build process in order to use Google's much more capable map API and in the process ahd to redesign the schema and the website based on changing information that would be returned. Finally group communication proved a greater issue than had been anticipated, especially as members and assignments threatened to get siloed. However, a combination of steady hands and a strong adherence to both user stories and a project to-do-list helped to overcome many of these issues.
+
